@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000',
   headers: { 'Content-Type': 'application/json' },
 })
 
@@ -21,7 +21,7 @@ api.interceptors.response.use(
     if (err.response?.status === 401) {
       localStorage.removeItem('exam_token')
       localStorage.removeItem('exam_user')
-      window.location.href = '/login'
+      window.location.hash = '#/login'
     }
     return Promise.reject(err)
   }

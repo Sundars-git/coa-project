@@ -14,10 +14,20 @@ app = FastAPI(
     version="1.0.0",
 )
 
+import os
+
 # ── CORS ──────────────────────────────────────────────────────────────────────
+cors_env = os.getenv("CORS_ORIGINS", "")
+allowed_origins = [o.strip() for o in cors_env.split(",") if o.strip()] if cors_env else [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:4173",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=allowed_origins,
+    allow_origin_regex=r"https://.*(\.vercel\.app|\.onrender\.com|\.netlify\.app|\.github\.io)",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
