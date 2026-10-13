@@ -22,42 +22,73 @@ DEMO_USERS = {
     "admin@uniportal.edu": {
         "id": "usr-admin-001",
         "email": "admin@uniportal.edu",
-        "full_name": "Dr. Sarah Mitchell",
+        "full_name": "Prof. Kamatchi Sundar",
         "role": "admin",
         "student_id": None,
-        "department": "Computer Science",
-        "avatar_initials": "SM",
+        "department": "Computer Science & Engineering",
+        "avatar_initials": "KS",
         # bcrypt hash of "Admin@1234"
         "password_hash": hash_password("Admin@1234"),
     },
-    "alice@student.edu": {
+    "nishthika@student.edu": {
         "id": "usr-stu-001",
-        "email": "alice@student.edu",
-        "full_name": "Alice Johnson",
+        "email": "nishthika@student.edu",
+        "full_name": "Nishthika",
         "role": "student",
         "student_id": "STU-2024-001",
-        "department": "Computer Science",
-        "avatar_initials": "AJ",
+        "department": "Computer Science & Engineering",
+        "avatar_initials": "NS",
+        "password_hash": hash_password("Student@1234"),
+    },
+    "fathima@student.edu": {
+        "id": "usr-stu-002",
+        "email": "fathima@student.edu",
+        "full_name": "Fathima",
+        "role": "student",
+        "student_id": "STU-2024-002",
+        "department": "Information Technology",
+        "avatar_initials": "FA",
+        "password_hash": hash_password("Student@1234"),
+    },
+    "kamatchi@student.edu": {
+        "id": "usr-stu-003",
+        "email": "kamatchi@student.edu",
+        "full_name": "Kamatchi Sundar",
+        "role": "student",
+        "student_id": "STU-2024-003",
+        "department": "Computer Science & Engineering",
+        "avatar_initials": "KS",
+        "password_hash": hash_password("Student@1234"),
+    },
+    # Backwards-compatible aliases
+    "alice@student.edu": {
+        "id": "usr-stu-001",
+        "email": "nishthika@student.edu",
+        "full_name": "Nishthika",
+        "role": "student",
+        "student_id": "STU-2024-001",
+        "department": "Computer Science & Engineering",
+        "avatar_initials": "NS",
         "password_hash": hash_password("Student@1234"),
     },
     "bob@student.edu": {
         "id": "usr-stu-002",
-        "email": "bob@student.edu",
-        "full_name": "Bob Williams",
+        "email": "fathima@student.edu",
+        "full_name": "Fathima",
         "role": "student",
         "student_id": "STU-2024-002",
         "department": "Information Technology",
-        "avatar_initials": "BW",
+        "avatar_initials": "FA",
         "password_hash": hash_password("Student@1234"),
     },
     "carol@student.edu": {
         "id": "usr-stu-003",
-        "email": "carol@student.edu",
-        "full_name": "Carol Davis",
+        "email": "kamatchi@student.edu",
+        "full_name": "Kamatchi Sundar",
         "role": "student",
         "student_id": "STU-2024-003",
-        "department": "Computer Science",
-        "avatar_initials": "CD",
+        "department": "Computer Science & Engineering",
+        "avatar_initials": "KS",
         "password_hash": hash_password("Student@1234"),
     },
 }
@@ -102,7 +133,8 @@ def get_user_by_id(user_id: str) -> Optional[dict]:
 
 
 # Public list (no password hashes) — safe to pass to admin endpoints
+_unique_users = {u["id"]: u for u in DEMO_USERS.values()}
 DEMO_USERS_PUBLIC = [
     {k: v for k, v in u.items() if k != "password_hash"}
-    for u in DEMO_USERS.values()
+    for u in _unique_users.values()
 ]

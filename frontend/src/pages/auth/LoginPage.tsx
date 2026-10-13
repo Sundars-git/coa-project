@@ -24,23 +24,30 @@ interface DemoCredential {
 
 const DEMO_CREDENTIALS: DemoCredential[] = [
   {
-    label: 'Admin',
-    roleDescription: 'System Administrator',
+    label: 'Admin (Kamatchi Sundar)',
+    roleDescription: 'System Administrator • CS Dept',
     email: 'admin@uniportal.edu',
     pass: 'Admin@1234',
     roleType: 'admin',
   },
   {
-    label: 'Student (Alice)',
+    label: 'Student (Nishthika)',
     roleDescription: 'Computer Science • CS-2024-001',
-    email: 'alice@student.edu',
+    email: 'nishthika@student.edu',
     pass: 'Student@1234',
     roleType: 'student',
   },
   {
-    label: 'Student (Bob)',
-    roleDescription: 'Computer Science • CS-2024-002',
-    email: 'bob@student.edu',
+    label: 'Student (Fathima)',
+    roleDescription: 'Information Technology • IT-2024-002',
+    email: 'fathima@student.edu',
+    pass: 'Student@1234',
+    roleType: 'student',
+  },
+  {
+    label: 'Student (Kamatchi Sundar)',
+    roleDescription: 'Computer Science • CS-2024-003',
+    email: 'kamatchi@student.edu',
     pass: 'Student@1234',
     roleType: 'student',
   },

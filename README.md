@@ -207,12 +207,12 @@ coa-project/
 
 Pre-configured accounts for testing different user roles:
 
-| Role | Email | Password | Access / Scope |
-| :--- | :--- | :--- | :--- |
-| **Administrator** | `admin@uniportal.edu` | `Admin@1234` | Full access: Performance Monitor, Simulator, Reports, Exams |
-| **Student** | `alice@student.edu` | `Student@1234` | Student portal: Take exams, view results, history |
-| **Student** | `bob@student.edu` | `Student@1234` | Student portal: Alternate test account |
-| **Student** | `carol@student.edu` | `Student@1234` | Student portal: Alternate test account |
+| Role | Name | Email | Password | Access / Scope |
+| :--- | :--- | :--- | :--- | :--- |
+| **Administrator** | Prof. Kamatchi Sundar | `admin@uniportal.edu` | `Admin@1234` | Full access: Performance Monitor, Simulator, Reports, Exams |
+| **Student** | Nishthika | `nishthika@student.edu` | `Student@1234` | Student portal: Take exams, view results, history |
+| **Student** | Fathima | `fathima@student.edu` | `Student@1234` | Student portal: Take exams, view results, history |
+| **Student** | Kamatchi Sundar | `kamatchi@student.edu` | `Student@1234` | Student portal: Take exams, view results, history |
 
 ---
 
