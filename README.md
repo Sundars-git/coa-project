@@ -203,6 +203,34 @@ coa-project/
 
 ---
 
+## 🌐 Public Cloud Deployment (Free 24/7 Access)
+
+### Step 1: Deploy Backend (Render)
+1. Sign up/log in to [Render](https://render.com/).
+2. Click **New +** > **Blueprint** (or **Web Service**).
+3. Connect your GitHub repository (`Sundars-git/coa-project`).
+4. Render automatically detects [`render.yaml`](render.yaml) and configures the FastAPI service.
+   - *Manual settings if not using blueprint*:
+     - **Root Directory**: `backend`
+     - **Build Command**: `pip install -r requirements.txt`
+     - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+     - **Environment Variable**: `CORS_ORIGINS=*`
+5. Once deployed, copy your backend URL (e.g., `https://coa-exam-portal-api.onrender.com`).
+
+### Step 2: Deploy Frontend (Vercel)
+1. Sign up/log in to [Vercel](https://vercel.com/).
+2. Click **Add New...** > **Project** and import `Sundars-git/coa-project`.
+3. In the project setup settings:
+   - **Framework Preset**: `Vite`
+   - **Root Directory**: `frontend`
+   - **Environment Variables**:
+     - Key: `VITE_API_URL`
+     - Value: `https://<your-render-backend-url>.onrender.com` (from Step 1)
+4. Click **Deploy**.
+5. Your exam portal is now live with a public URL (e.g., `https://coa-project.vercel.app`)!
+
+---
+
 ## 🔑 Demo Credentials
 
 Pre-configured accounts for testing different user roles:

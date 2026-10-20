@@ -5,12 +5,13 @@ No database — users are defined here at startup.
 
 from typing import Optional
 from datetime import datetime, timedelta, timezone
+import os
 from jose import JWTError, jwt
 import bcrypt
 
-SECRET_KEY = "exam-portal-secret-key-change-in-production-2024"
+SECRET_KEY = os.getenv("SECRET_KEY", "exam-portal-secret-key-change-in-production-2024")
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 480  # 8 hours for demo
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "480"))  # 8 hours
 
 def hash_password(password: str) -> str:
     return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
